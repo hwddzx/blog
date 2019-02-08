@@ -34,13 +34,13 @@
                 {#            <a href="#" class="w_logo"></a>#}
                 <span class="w_header_nav">
 					<ul>
-						<li><a href="" class="active">首页</a></li>
-						<li><a href="about.html">关于</a></li>
-						<li><a href="article.html">成长</a></li>
+						<li><a href="{% url 'blog:主页' %}" class="active">首页</a></li>
+						<li><a href="{% url 'blog:关于' %}">关于</a></li>
+						<li><a href="{% url 'blog:成长' %}">成长</a></li>
 						<li><a href="">学习</a></li>
 						<li><a href="">娱乐</a></li>
-						<li><a href="moodList.html">说说</a></li>
-						<li><a href="comment.html">留言</a></li>
+						<li><a href="{% url 'blog:说说' %}">说说</a></li>
+						<li><a href="{% url 'blog:留言' %}">留言</a></li>
 					</ul>
 				</span>
                 <div class="w_search">
@@ -69,5 +69,6 @@
 {% block footer_js %}
 
 {% endblock %}
+
 </body>
 </html>
