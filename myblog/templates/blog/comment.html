@@ -23,6 +23,10 @@
 						<li><a href="">娱乐</a></li>
 						<li><a href="{% url 'blog:说说' %}">说说</a></li>
 						<li><a href="{% url 'blog:留言' %}" class="active">留言</a></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        <li><a href="{% url 'blog:登录' %}" title="登录">登录</a></li>
+						<li><a href="{% url 'blog:注册' %}" title="注册">注册</a></li>
 					</ul>
 				</span>
                 <div class="w_search">
@@ -41,60 +45,29 @@
         <div class="container">
             <div class="row w_main_row">
                 <ol class="breadcrumb w_breadcrumb">
-                    <li><a href="#">首页</a></li>
-                    <li class="active">评论</li>
+                    <li><a href="{% url 'blog:主页' %}">首页</a></li>
+                    <li class="active">留言</li>
                     <span class="w_navbar_tip">你，生命中最重要的过客，之所以是过客，因为你未曾为我停留。</span>
                 </ol>
 
                 <div class="col-lg-9 col-md-9 w_main_left">
-
-
-                    <!--PC版-->
-                    <!--<div id="SOHUCS" sid="5eab7e4c363e4cb8bed0efa3604e6b42"></div>
-                    <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
-                    <script type="text/javascript">
-                    window.changyan.api.config({
-                    appid: 'cysPwLFm1',
-                    conf: 'prod_6c6350e206c502f569b865b4bf121e60'
-                    });
-                    </script>-->
-
-                    <!-- 多说评论框 start -->
-                    <div class="ds-thread" data-thread-key="5eab7e4c363e4cb8bed0efa3604e6b42" data-title="请替换成文章的标题"
-                         data-url="请替换成文章的网址"></div>
-                    <!-- 多说评论框 end -->
-                    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-                    <script type="text/javascript">
-                        var duoshuoQuery = {short_name: "wfyvv"};
-                        (function () {
-                            var ds = document.createElement('script');
-                            ds.type = 'text/javascript';
-                            ds.async = true;
-                            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                            ds.charset = 'UTF-8';
-                            (document.getElementsByTagName('head')[0]
-                                || document.getElementsByTagName('body')[0]).appendChild(ds);
-                        })();
-                    </script>
-                    <!-- 多说公共JS代码 end -->
-
-
+                    <form action="{% url 'blog:留言' %}" method="post">
+                        {% csrf_token %}
+                        <p style="color: red">{{ errors.content.0 }}</p>
+                        <textarea rows="3" name="content" class="form-control"></textarea>
+                        <br/>
+                        <input class="btn btn-success" type="submit" value="留言">
+                    </form>
+                    <br/>
+                    {% for message in messages %}
+                        <div>
+                            <p style="font-size: 18px;font-family:'宋体','仿宋',sans-serif;">{{ message.content }}</p>
+                            <p style="text-align:right;">留言时间：{{ message.add_time }}</p>
+                        </div>
+                    {% endfor %}
                 </div>
-                <div class="col-lg-3 col-md-3 w_main_right">
-                    <img src="img/slider/aboutphoto.png"/>
-                </div>
-
-
             </div>
         </div>
     </div>
 {% endblock %}
 
-{% block footer_js %}
-    <div id="shape">
-        <div class="shapeColor">
-            <div class="shapeFly">
-            </div>
-        </div>
-    </div>
-{% endblock %}

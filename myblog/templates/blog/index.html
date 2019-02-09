@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="panel panel-default contenttop">
-                        <a href="{% url 'blog:文章详情' %}">
+                        <a href="#">
                             <strong>博主置顶</strong>
                             <h3 class="title">嫁人就嫁程序员</h3>
                             <p class="overView">
@@ -68,34 +68,40 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">最新发布</h3>
+                            <h3 class="panel-title">热门排行</h3>
                         </div>
-
                         <div class="panel-body">
 
                             <!--文章列表开始-->
                             <div class="contentList">
-                                {% for article in articles %}
+                                {% for article in read_articles %}
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="contentleft">
-                                                <h4><a class="title" href="{% url 'blog:文章详情' %}">
+                                                <h4><a class="title" href="{% url 'blog:文章详情' article.pk %}">
                                                     {{ article.title }}
                                                 </a></h4>
                                                 <p>
-                                                    <a class="label label-default">Nginx</a>
-                                                    <a class="label label-default">tomcat负载均衡</a>
+                                                    {% for label in article.label_set.all %}
+                                                        <a class="label label-default">{{ label }}</a>
+                                                    {% endfor %}
                                                 </p>
                                                 <p class="overView">
-                                                    1.web服务器负载均衡简介web服务器负载均衡是指将多台可用单节点服务器组合成web服务器集群，然后通过负载均衡器将客户端请求均匀的转发到不同的单节点web服务器上，从而增加整个web服务器集群的吞吐量。
+                                                    {{ article.content | truncatewords:4 |safe }}
                                                 </p>
-                                                <p><span class="count"><i class="glyphicon glyphicon-user"></i><a
-                                                        href="#">{{ article.writer }}</a></span> <span class="count"><i
-                                                        class="glyphicon glyphicon-eye-open"></i>阅读:1003</span><span
-                                                        class="count"><i
-                                                        class="glyphicon glyphicon-comment"></i>评论:2</span><span
-                                                        class="count"><i
-                                                        class="glyphicon glyphicon-time"></i>{{ article.add_time }}</span>
+                                                <p><span class="count">
+                                                    <i class="glyphicon glyphicon-user"></i>
+                                                    <a href="#">{{ article.writer }}</a>
+                                                    </span>
+                                                    <span class="count">
+                                                    <i class="glyphicon glyphicon-eye-open"></i>阅读:{{ article.read }}
+                                                    </span>
+                                                    <span class="count">
+                                                        <i class="glyphicon glyphicon-comment"></i>评论:{{ article.comment }}
+                                                    </span>
+                                                    <span class="count">
+                                                        <i class="glyphicon glyphicon-time"></i>{{ article.add_time }}
+                                                    </span>
                                                 </p>
                                             </div>
                                             <div class="contentImage">
@@ -135,19 +141,9 @@
                         </div>
                         <div class="panel-body">
                             <div class="labelList">
-                                <a class="label label-default">java</a>
-                                <a class="label label-default">tomcat负载均衡</a>
-                                <a class="label label-default">panel</a>
-                                <a class="label label-default" href="/tag/jQuery">jQuery</a>
-                                <a class="label label-default" href="/tag/jQuery选择器">jQuery选择器</a>
-                                <a class="label label-default" href="/tag/linux">linux</a>
-                                <a class="label label-default" href="/tag/Nginx">Nginx</a>
-                                <a class="label label-default" href="/tag/linux文件类型">linux文件类型</a>
-                                <a class="label label-default" href="/tag/chrome请求两次">chrome</a>
-                                <a class="label label-default" href="/tag/Redis">Redis</a>
-                                <a class="label label-default" href="/tag/spring">spring</a>
-                                <a class="label label-default" href="/tag/tomcat">tomcat</a>
-                                <a class="label label-default" href="/tag/SyntaxHighlighter">SyntaxHighlighter</a>
+                                {% for label in labels %}
+                                    <a class="label label-default">{{ label.name }}</a>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -158,7 +154,7 @@
                         </div>
                         <div class="panel-body">
                             <ul class="list-unstyled sidebar">
-                                {% for article in articles %}
+                                {% for article in add_articles %}
                                     <li>
                                         <a href="/post/04928311">{{ article.title }}</a>
                                     </li>
@@ -208,6 +204,7 @@
         </div>
     </div>
 {% endblock %}
+
 {% block footer_js %}
     <script type="text/javascript">
         var $backToTopEle = $('<a href="javascript:void(0)" class="Hui-iconfont toTop" title="返回顶部" alt="返回顶部" style="display:none">^</a>').appendTo($("body")).click(function () {

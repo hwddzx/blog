@@ -14,9 +14,7 @@
     <link href="{% static 'image/logo.ico' %}" rel="shortcut icon"/>
     <script src="{% static 'plugin/jquery.min.js' %}"></script>
     <script src="{% static 'plugin/bootstrap/js/bootstrap.min.js' %}"></script>
-    <!--<script type="text/javascript" src="plugin/jquery.page.js"></script>-->
-    <!--<script src="js/common.js"></script>-->
-    <!--<script src="js/snowy.js"></script>-->
+
     {% block head_css %}
         {#      写css      #}
     {% endblock %}
@@ -41,6 +39,10 @@
 						<li><a href="">娱乐</a></li>
 						<li><a href="{% url 'blog:说说' %}">说说</a></li>
 						<li><a href="{% url 'blog:留言' %}">留言</a></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        <li><a href="{% url 'blog:登录' %}" title="登录">登录</a></li>
+						<li><a href="{% url 'blog:注册' %}" title="注册">注册</a></li>
 					</ul>
 				</span>
                 <div class="w_search">
