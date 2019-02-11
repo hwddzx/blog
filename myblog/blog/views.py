@@ -2,7 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
 
-from blog.forms import MessageBoardForm, UserForm
+from blog.forms import MessageBoardForm, UserForm, LoginForm
 from blog.helper import set_password
 from blog.models import Article, Label, Talk, MessageBoard, IndexPicture, User
 
@@ -12,6 +12,22 @@ class Login(View):
 
     def get(self, request):
         return render(request, 'blog/login.html')
+
+    def post(self, request):
+        # 接收参数
+        data = request.POST
+        form = LoginForm(data)
+        if form.is_valid():
+            # 合法
+            user = form.cleaned_data['user']
+            # 保存session
+            request.session['ID'] = user.pk
+            request.session['phone'] = user.phone
+            # 登录成功跳转到主页
+            return redirect('blog:主页')
+        else:
+            # 不合法
+            return render(request, 'blog/login.html', context=form.errors)
 
 
 class Reg(View):
