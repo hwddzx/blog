@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from blog.forms import MessageBoardForm, UserForm
-from blog.models import Article, Label, Talk, MessageBoard
+from blog.helper import set_password
+from blog.models import Article, Label, Talk, MessageBoard, IndexPicture, User
 
 
 class Login(View):
@@ -22,12 +23,16 @@ class Reg(View):
     def post(self, request):
         # 接收参数
         data = request.POST
-        # 操作数据
+        # 验证数据合法性
         form = UserForm(data)
         if form.is_valid():
-
-            # 返回响应
-            return HttpResponse('ok')
+            # 保存数据库
+            user = User()
+            user.phone = form.cleaned_data.get('phone')
+            user.password = set_password(form.cleaned_data.get('password'))
+            user.save()
+            # 跳转到登录
+            return redirect('blog:登录')
         else:
             return render(request, 'blog/reg.html', context=form.errors)
 
@@ -37,6 +42,7 @@ class Index(View):
 
     def get(self, request):
         # 操作数据
+        pictures = IndexPicture.objects.filter(is_delete=False)
         # 获取文章按发布时间排序
         add_articles = Article.objects.filter(is_delete=False).order_by('-add_time')
         # 获取文章按阅读量排序
@@ -46,7 +52,8 @@ class Index(View):
         context = {
             'add_articles': add_articles,
             'read_articles': read_articles,
-            'labels': labels
+            'labels': labels,
+            'pictures': pictures
         }
         return render(request, 'blog/index.html', context=context)
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blog.models import Article, Label, Talk, MessageBoard
+from blog.models import Article, Label, Talk, MessageBoard, IndexPicture
 
 
 # 对模型进行管理(管理显示结构)
@@ -27,3 +27,9 @@ class TalkAdmin(admin.ModelAdmin):
 class TalkAdmin(admin.ModelAdmin):
     list_per_page = 10
     list_display = ['content', 'add_time']
+
+
+@admin.register(IndexPicture)
+class IndexPictureAdmin(admin.ModelAdmin):
+    list_per_page = 10
+    list_display = ['title', 'picture', 'add_time', 'is_delete']
