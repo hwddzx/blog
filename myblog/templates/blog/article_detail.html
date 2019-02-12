@@ -83,40 +83,6 @@
                                 <p class="last">上一篇：<a href="#">免费收录网站搜索引擎登录口大全</a></p>
                                 <p class="next">下一篇：<a href="#">javascript显示年月日时间代码</a></p>
                             </div>
-
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <center>
-                                <div id="cyReward" role="cylabs" data-use="reward"
-                                     sid="5eab7e4c363e4cb8bed0efa3604e6b42"></div>
-                            </center>
-
-                            <script type="text/javascript" charset="utf-8"
-                                    src="https://changyan.itc.cn/js/lib/jquery.js"></script>
-                            <script type="text/javascript" charset="utf-8"
-                                    src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cysPwLFm1"></script>
-
-                            <div class="ds-thread" data-thread-key="testarticle" data-title="我的个人博客之——阿里云空间选择"
-                                 data-url="http://127.0.0.1:8020/wilco/article_detail.html"></div>
-                            <!-- 多说评论框 end -->
-                            <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-                            <script type="text/javascript">
-                                var duoshuoQuery = {short_name: "wfyvv"};
-                                (function () {
-                                    var ds = document.createElement('script');
-                                    ds.type = 'text/javascript';
-                                    ds.async = true;
-                                    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                                    ds.charset = 'UTF-8';
-                                    (document.getElementsByTagName('head')[0]
-                                        || document.getElementsByTagName('body')[0]).appendChild(ds);
-                                })();
-                            </script>
-                            <!-- 多说公共JS代码 end -->
-
                         </div>
                     </div>
                 </div>
@@ -130,7 +96,7 @@
                         <div class="panel-body">
                             <ul class="list-unstyled sidebar">
                                 {% for add_article in add_articles %}
-                                    <li><a href="/post/04928311">{{ add_article.title }}</a></li>
+                                    <li><a href="{% url 'blog:文章详情' add_article.pk %}">{{ add_article.title }}</a></li>
                                 {% endfor %}
                             </ul>
                         </div>

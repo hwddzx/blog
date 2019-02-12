@@ -10,3 +10,8 @@ def set_password(password):
         h = hashlib.md5(pwd.encode('utf-8'))
         password = h.hexdigest()
     return password
+
+
+def json_msg(code, msg=None, data=None):
+    """封装json消息,code: 0为正确,其他为错误"""
+    return {"code": code, "errmsg": msg, "data": data}

@@ -27,7 +27,7 @@
                         <li><a href=""></a></li>
                         {% if request.session.ID %}
                             <li><a href="">{{ request.session.phone }}</a></li>
-                            <li><a href="">退出登录</a></li>
+                            <li><a href="{% url 'blog:注销' %}">退出登录</a></li>
                         {% else %}
                             <li><a href="{% url 'blog:登录' %}" title="登录">登录</a></li>
                             <li><a href="{% url 'blog:注册' %}" title="注册">注册</a></li>
@@ -59,9 +59,10 @@
                     <form action="{% url 'blog:留言' %}" method="post">
                         {% csrf_token %}
                         <p style="color: red">{{ errors.content.0 }}</p>
-                        <textarea rows="3" name="content" class="form-control"></textarea>
+                        <textarea rows="3" name="content" id="content" class="form-control"></textarea>
                         <br/>
-                        <input class="btn btn-success" type="submit" value="留言">
+                        <input type="hidden" id="session" value="{{ request.session.ID }}">
+                        <input class="btn btn-success" id="sbt" type="button" value="留言">
                     </form>
                     <br/>
                     {% for message in messages %}
@@ -76,3 +77,37 @@
     </div>
 {% endblock %}
 
+{% block footer_js %}
+    <script>
+        $(function () {
+            //判断用户是否登录,登录才能留言
+            $('#sbt').on('click', function () {
+                var id = $('#session').val();
+                var content = $("#content").val();
+                var data = {
+                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                    'content': content
+                }
+                console.debug(content)
+                if (id) {
+                    if (content) {
+                        $.ajax({
+                            url: '{% url "blog:留言" %}',
+                            type: 'post',
+                            data: data,
+                            dataType: 'json',
+                            success: function (data) {
+                                alert('留言成功');
+                                location.href = "{% url 'blog:留言' %}";
+                            }
+                        })
+                    } else {
+                        alert('留言内容不能为空');
+                    }
+                } else {
+                    alert('请登录后留言');
+                }
+            });
+        })
+    </script>
+{% endblock %}

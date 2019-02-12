@@ -2,8 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
 
-from blog.forms import MessageBoardForm, UserForm, LoginForm
-from blog.helper import set_password
+from blog.forms import UserForm, LoginForm
+from blog.helper import set_password, json_msg
 from blog.models import Article, Label, Talk, MessageBoard, IndexPicture, User
 
 
@@ -122,22 +122,10 @@ class Comment(View):
     def post(self, requset):
         # 接收参数
         data = requset.POST
-        form = MessageBoardForm(data)
-        # 判断合法性
-        if form.is_valid():
-            content = data['content']
-            # 操作数据库
-            MessageBoard.objects.create(content=content)
-            return redirect('blog:留言')
-        else:
-            # 不合法,返回错误提示
-            errors = form.errors
-            messages = MessageBoard.objects.all().order_by('-add_time')
-            context = {
-                'errors': errors,
-                'messages': messages
-            }
-            return render(requset, 'blog/comment.html', context=context)
+        content = data['content']
+        # 操作数据库
+        MessageBoard.objects.create(content=content)
+        return JsonResponse(json_msg(0, '留言成功'))
 
 
 class MoodList(View):

@@ -4,20 +4,6 @@ from blog.helper import set_password
 from blog.models import MessageBoard, User
 
 
-class MessageBoardForm(forms.ModelForm):
-    """留言板表单验证"""
-
-    class Meta:
-        model = MessageBoard
-        # 需要验证的字段
-        fields = ['content', ]
-        error_messages = {
-            'content': {
-                'required': '留言内容不能为空!'
-            }
-        }
-
-
 class UserForm(forms.ModelForm):
     """用户注册验证"""
     # 单独添加字段
