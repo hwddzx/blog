@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b11b9dd5-da72-49fb-aad9-e5189d93a48e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/article_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/article_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,11 +48,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="127" column="48" lean-forward="true" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
+            <state relative-caret-position="1242">
+              <caret line="139" column="69" lean-forward="true" selection-start-line="139" selection-start-column="69" selection-end-line="139" selection-end-column="69" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
                 <element signature="e#330#899#0" />
@@ -72,23 +67,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/helper.py">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/blog/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="12" />
+            <state relative-caret-position="324">
+              <caret line="140" column="93" selection-start-line="140" selection-start-column="93" selection-end-line="140" selection-end-column="93" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="n#block#2;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comment.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/blog/comment.html">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="88" column="38" lean-forward="true" selection-start-line="88" selection-start-column="38" selection-end-line="88" selection-end-column="38" />
+            <state relative-caret-position="180">
+              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+                <element signature="e#1415#1856#0" />
+                <element signature="e#1897#2325#0" />
+                <element signature="e#2361#2643#0" />
+                <element signature="e#2676#3416#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,7 +124,6 @@
         <option value="$PROJECT_DIR$/blog/apps.py" />
         <option value="$PROJECT_DIR$/myblog/urls.py" />
         <option value="$PROJECT_DIR$/blog/admin.py" />
-        <option value="$PROJECT_DIR$/blog/models.py" />
         <option value="$PROJECT_DIR$/templates/blog/reg.html" />
         <option value="$PROJECT_DIR$/templates/blog/login.html" />
         <option value="$PROJECT_DIR$/myblog/settings.py" />
@@ -131,12 +132,13 @@
         <option value="$PROJECT_DIR$/blog/urls.py" />
         <option value="$PROJECT_DIR$/templates/common/parent.html" />
         <option value="$PROJECT_DIR$/templates/blog/article.html" />
-        <option value="$PROJECT_DIR$/templates/blog/index.html" />
         <option value="$PROJECT_DIR$/templates/blog/article_detail.html" />
         <option value="$PROJECT_DIR$/blog/forms.py" />
         <option value="$PROJECT_DIR$/templates/blog/comment.html" />
         <option value="$PROJECT_DIR$/blog/helper.py" />
         <option value="$PROJECT_DIR$/blog/views.py" />
+        <option value="$PROJECT_DIR$/templates/blog/index.html" />
+        <option value="$PROJECT_DIR$/blog/models.py" />
       </list>
     </option>
   </component>
@@ -284,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549938558969</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="通过ajax判断用户登录才能留言">
+      <created>1549957047346</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1549957047346</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -305,9 +314,9 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.3293348" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2780807" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2780807" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32897604" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13113007" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13113007" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.21481876" />
       <window_info anchor="right" id="SciView" order="4" />
@@ -337,7 +346,8 @@
     <MESSAGE value="完成注册,密码加密,验证码和重复密码暂未做" />
     <MESSAGE value="完成注册,登录,验证码暂未做" />
     <MESSAGE value="完成登录之后将session保存到缓存,注销功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成登录之后将session保存到缓存,注销功能" />
+    <MESSAGE value="通过ajax判断用户登录才能留言" />
+    <option name="LAST_COMMIT_MESSAGE" value="通过ajax判断用户登录才能留言" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -574,16 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blog/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
@@ -673,16 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="107" column="54" lean-forward="true" selection-start-line="107" selection-start-column="54" selection-end-line="107" selection-end-column="54" />
-          <folding>
-            <element signature="n#block#2;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blog/article_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -719,8 +709,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="127" column="48" lean-forward="true" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
+        <state relative-caret-position="1242">
+          <caret line="139" column="69" lean-forward="true" selection-start-line="139" selection-start-column="69" selection-end-line="139" selection-end-column="69" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
             <element signature="e#330#899#0" />
@@ -730,6 +720,30 @@
             <element signature="e#2601#2688#0" />
             <element signature="e#2716#3093#0" />
             <element signature="e#4022#4256#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blog/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="140" column="93" selection-start-line="140" selection-start-column="93" selection-end-line="140" selection-end-column="93" />
+          <folding>
+            <element signature="n#block#2;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <element signature="e#1415#1856#0" />
+            <element signature="e#1897#2325#0" />
+            <element signature="e#2361#2643#0" />
+            <element signature="e#2676#3416#0" />
           </folding>
         </state>
       </provider>

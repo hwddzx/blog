@@ -37,6 +37,7 @@ class Label(models.Model):
 
 
 class Talk(models.Model):
+    """说说"""
     content = models.CharField(max_length=255, verbose_name='说说')
     picture = models.ImageField(upload_to='talk/%Y%m/%d', verbose_name='说说图片', null=True)
     add_time = models.DateTimeField(auto_now_add=True, verbose_name='发布时间')
@@ -51,6 +52,7 @@ class Talk(models.Model):
 
 
 class IndexPicture(models.Model):
+    """首页轮播"""
     title = models.CharField(max_length=20, verbose_name='图片描述')
     picture = models.ImageField(upload_to='home/%Y%m', verbose_name='首页轮播图片')
     add_time = models.DateTimeField(auto_now_add=True, verbose_name='发布时间')

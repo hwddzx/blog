@@ -138,7 +138,7 @@
                         <div class="panel-body">
                             <div class="labelList">
                                 {% for label in labels %}
-                                    <a class="label label-default">{{ label.name }}</a>
+                                    <a class="label label-default">{{ label.name }} [{{ label.article.count }}]</a>
                                 {% endfor %}
                             </div>
                         </div>
