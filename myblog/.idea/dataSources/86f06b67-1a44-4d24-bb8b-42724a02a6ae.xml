@@ -509,14 +509,14 @@ article_id</ColNames>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="121" parent="18" name="phone">
+    <column id="121" parent="18" name="password">
       <Position>2</Position>
-      <DataType>smallint|0s</DataType>
+      <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="122" parent="18" name="password">
+    <column id="122" parent="18" name="integral">
       <Position>3</Position>
-      <DataType>varchar(32)|0s</DataType>
+      <DataType>smallint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="123" parent="18" name="add_time">
@@ -534,9 +534,9 @@ article_id</ColNames>
       <DataType>bool|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="126" parent="18" name="integral">
+    <column id="126" parent="18" name="phone">
       <Position>7</Position>
-      <DataType>smallint|0s</DataType>
+      <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <key id="127" parent="18">

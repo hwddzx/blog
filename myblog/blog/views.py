@@ -150,3 +150,12 @@ class MoodList(View):
             'talks': talks
         }
         return render(request, 'blog/moodList.html', context=context)
+
+
+class Quit(View):
+    """注销登录"""
+
+    def get(self, request):
+        # 删除session
+        request.session.flush()
+        return redirect('blog:登录')

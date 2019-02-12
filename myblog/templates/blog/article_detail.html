@@ -10,6 +10,42 @@
     <script src="{% static 'js/common.js' %}"></script>
 {% endblock %}
 
+{% block header %}
+    <div class="w_header">
+        <div class="container">
+            <div class="w_header_top">
+                {#            <a href="#" class="w_logo"></a>#}
+                <span class="w_header_nav">
+					<ul>
+						<li><a href="{% url 'blog:主页' %}">首页</a></li>
+						<li><a href="{% url 'blog:关于' %}">关于</a></li>
+						<li><a href="{% url 'blog:成长' %}">成长</a></li>
+						<li><a href="">学习</a></li>
+						<li><a href="">娱乐</a></li>
+						<li><a href="{% url 'blog:说说' %}">说说</a></li>
+						<li><a href="{% url 'blog:留言' %}">留言</a></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        {% if request.session.ID %}
+                            <li><a href="">{{ request.session.phone }}</a></li>
+                            <li><a href="">退出登录</a></li>
+                        {% else %}
+                            <li><a href="{% url 'blog:登录' %}" title="登录">登录</a></li>
+                            <li><a href="{% url 'blog:注册' %}" title="注册">注册</a></li>
+                        {% endif %}
+					</ul>
+				</span>
+                <div class="w_search">
+                    <div class="w_searchbox">
+                        <input type="text" placeholder="search"/>
+                        <button>搜索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
     <div class="w_container">
         <div class="container">

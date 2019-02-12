@@ -72,15 +72,6 @@ class LoginForm(forms.ModelForm):
             }
         }
 
-    # def clean_phone(self):
-    #     # 验证手机号是否注册
-    #     phone = self.cleaned_data.get('phone')
-    #     rs = User.objects.filter(phone=phone).exists()
-    #     if rs:
-    #         return phone
-    #     else:
-    #         raise forms.ValidationError('手机号未被注册!')
-
     def clean(self):
         # 验证账号密码是否正确
         phone = self.cleaned_data.get('phone')
@@ -89,7 +80,7 @@ class LoginForm(forms.ModelForm):
         try:
             user = User.objects.get(phone=phone)
         except User.DoesNotExist:
-            raise forms.ValidationError({'phone': '手机号不存在'})
+            raise forms.ValidationError({'phone': '手机号未被注册!'})
         # 验证密码
         if user.password != set_password(password):
             raise forms.ValidationError({'password': '密码错误!'})

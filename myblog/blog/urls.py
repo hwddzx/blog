@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from blog.views import Index, Detail, About, Acticle, Comment, MoodList, Login, Reg
+from blog.views import Index, Detail, About, Acticle, Comment, MoodList, Login, Reg, Quit
 
 urlpatterns = [
     url(r'^$', Index.as_view(), name='主页'),
@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^moodList', MoodList.as_view(), name='说说'),
     url(r'^login', Login.as_view(), name='登录'),
     url(r'^reg', Reg.as_view(), name='注册'),
+    url(r'^quit', Quit.as_view(), name='注销'),
 ]
